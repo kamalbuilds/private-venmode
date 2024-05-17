@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { ethers } from 'ethers';
 import axios from 'axios';
 import styles from "../styles/cyphertext.module.css";
+import { useToast } from '@chakra-ui/react';
 
 const SendMessage = () => {
     const [ciphertext, setCiphertext] = useState('');
     const [status, setStatus] = useState('');
-
+    const toast = useToast();
     const sendMessage = async () => {
         if (!window.ethereum) {
             alert('MetaMask is not installed');
@@ -18,11 +19,9 @@ const SendMessage = () => {
             // Request account access if needed
             await window.ethereum.request({ method: 'eth_requestAccounts' });
 
-            // Create a provider and signer
             const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
             const signer = provider.getSigner();
 
-            // Define the contract ABI
             const abi =[
                 {
                     "inputs": [
@@ -614,7 +613,13 @@ const SendMessage = () => {
 
             // Convert the ciphertext to a keccak256 hash
             const hash = ethers.utils.keccak256(ethers.utils.toUtf8Bytes(ciphertext));
-
+            toast({
+                title: 'Transfer Successful',
+                description: "You have successfully transferred tokens!",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+            })
             console.log(hash,"hash");
             // 0x4c07532f8ff56641292a1dea2a280453f9e3e214dd65ee2577d75d90b25c73e5 
 

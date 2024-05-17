@@ -5,6 +5,7 @@
 - Private VenMode is deployed on a Layer3 that settles on Mode
 0x746b46116c1907D269bbf331fb5113da4F7E2aac
 
+0x7D149a51aF663870f512697c7Cdb781867Fbc465 - USDT
 0xE71D50B4Ecbfbe137aEf99247193d2c322bacEA2 - PEPE
 0xdC797ecB1526618848D17e9b6B9437ad980213ED - USDC
 
@@ -17,6 +18,10 @@ ContractAddr - 0x28d0F2353af7e357Eed9f960D1D2213Fa85a270e
 ## Introduction
 
 At its core, PrivateVenmode leverages the Mode blockchain to offer a unique suite of features aimed at transforming how we think about sending gifts and making donations in the cryptocurrency space. With Mode's unparalleled security, powered by a decentralized network of Orchestrators and the Spiderchain's multisig technology, your transactions are not just transactions—they're a new form of connecting, giving, and supporting causes and individuals across the globe.
+
+Fully Homomorphic encryption (FHE) is a form of encryption that allows computations to be performed on encrypted data without first having to decrypt it. In simpler terms, it enables data to be manipulated and processed in its encrypted form, maintaining its confidentiality throughout the entire computation process.
+
+FHE operates using mathematical concepts from algebraic geometry, number theory, and lattice-based cryptography. The basic idea behind FHE is to use mathematical structures that allow operations to be performed on encrypted data in a way that, when decrypted, produce the same result as if the operations were performed on the original unencrypted data.
 
 ### Features
 
