@@ -1,0 +1,14 @@
+inco:
+  name: inco
+  chainId: 9090
+  domainId: 9090
+  protocol: ethereum
+  rpcUrls:
+    - http: https://testnet.inco.org
+loyaltyroller:
+  name: loyaltyroller
+  chainId: 1729
+  domainId: 1729
+  protocol: ethereum
+  rpcUrls:
+    - http: "https://rpc-loyalty-roller-roqlic24du.t.conduit.xyz"
