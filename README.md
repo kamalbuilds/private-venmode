@@ -1,8 +1,14 @@
 # PrivateVenmode - Fast, Safe , Onchain Social Payments,  Gifting and Donations on Layer3 settles on Mode using Celestia as DA layer
 
-- Welcome to PrivateVenmode, a groundbreaking application designed from the ground up for Mode, the pioneering Layer 3 solution built on Mode. This application is a testament to the innovative spirit of Mode, bringing the versatility of the Ethereum Virtual Machine (EVM) to the robust, decentralized world of Mode.
+- Welcome to PrivateVenmode powered by FHE, a groundbreaking application designed from the ground up for Mode, the pioneering Layer 3 solution built on Mode. This application is a testament to the innovative spirit of Mode, bringing the versatility of the Ethereum Virtual Machine (EVM) to the robust, decentralized world of Mode.
 
-- Private VenMode will be deployed on a Layer3 that settles on Mode
+- Private VenMode is deployed on a Layer3 that settles on Mode
+0x746b46116c1907D269bbf331fb5113da4F7E2aac
+
+0xE71D50B4Ecbfbe137aEf99247193d2c322bacEA2 - PEPE
+0xdC797ecB1526618848D17e9b6B9437ad980213ED - USDC
+
+0x30cf421A3e8Af92dE191778b9d0Ce04abfb426f1 - Inco
 
 - This would also allow private transactions by the users so they will be able to execute private transactions onchain so only the sender and the reciever are aware of the transactions.
 
@@ -19,6 +25,11 @@ At its core, PrivateVenmode leverages the Mode blockchain to offer a unique suit
 - **Recurring Gifts**: Set up continuous joy by scheduling recurring gifts, ensuring your loved ones or favorite charities are supported regularly.
 - **Charity Donations**: Directly support verified charities within the Mode ecosystem, leveraging the security and transparency of blockchain technology.
 - **Decentralized and Secure**: Built on the Layer3 chain, PrivateVenmode embodies the principles of decentralization and security, with every transaction secured through multisig wallets and overseen by a network of Orchestrators.
+- **Send Encrypted Messages on the L3 utilsing the FHE technology powered by Inco , Hyperlane and Kurtosis**
+
+Bridging the cyphertext takes - 1/3 rd ETH block
+
+ciphertext -> hash , data from L3 chain to inco
 
 ## Why PrivateVenmode on Mode?
 

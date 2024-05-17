@@ -17,6 +17,7 @@ contract PrivateVenmode {
 
     IMailbox outbox;
     event SentMessage(uint32 destinationDomain, bytes32 recipient, string message);
+    event sendCipherText(bytes32 _uniqueIdentifier, address _sender);
 
     uint256 public _tokenIdCounter;
     uint256 public random;
@@ -34,32 +35,33 @@ contract PrivateVenmode {
         owner = msg.sender;
     }
 
-    function addressToBytes32(address _addr) external pure returns (bytes32) {
+    // function sendtoInco(
+    //     uint32 _destinationDomain,
+    //     bytes32 _recipient,
+    //     bytes32 uniquebytes,
+    //     string calldata _message
+    // ) external payable  {
+    //     uint256 quote = outbox.quoteDispatch(9090, _recipient, abi.encode(uniquebytes, msg.sender));
+    //     outbox.dispatch{value: quote}(9090, _recipient, abi.encode(uniquebytes, msg.sender));
+    //     emit SentMessage(9090, _recipient, _message);
+    // }
+
+    function generateHash(bytes memory data) public pure returns (bytes32) {
+        return keccak256(data);
+    }
+
+    function addressToBytes32(address _addr) internal pure returns (bytes32) {
         return bytes32(uint256(uint160(_addr)));
     }
 
-    function getquote(
-        uint32 _destinationDomain,
-        bytes32 _recipient,
-        bytes32 uniquebytes,
-        string calldata _message
-    ) external payable returns 
-    (uint256) {
-        uint256 quote = outbox.quoteDispatch(_destinationDomain, _recipient, abi.encode(uniquebytes, msg.sender));
-        return quote;
-    }
+    function sendHashtoInco(bytes32 uniqueEncryptedIdentifier, address destinationContract) external {
 
-    function sendtoInco(
-        uint32 _destinationDomain,
-        bytes32 _recipient,
-        bytes32 uniquebytes,
-        string calldata _message
-    ) external payable  {
-        uint256 quote = outbox.quoteDispatch(_destinationDomain, _recipient, abi.encode(uniquebytes, msg.sender));
-        outbox.dispatch{value: quote}(_destinationDomain, _recipient, abi.encode(uniquebytes, msg.sender));
-        emit SentMessage(_destinationDomain, _recipient, _message);
+        outbox.dispatch(
+            9090,
+            addressToBytes32(destinationContract),
+            abi.encode(uniqueEncryptedIdentifier,msg.sender)
+        );
     }
-
 
     address public owner;
     mapping(address => bool) private verifiedTokens;
