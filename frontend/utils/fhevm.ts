@@ -1,7 +1,6 @@
-
+// @ts-nocheck
 import { InjectedWallet } from "@thirdweb-dev/react";
 import {   ethers} from "ethers";
-// @ts-ignore
 import { initFhevm, createInstance, FhevmInstance } from "fhevmjs";
 
 
