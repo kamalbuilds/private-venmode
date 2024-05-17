@@ -1,5 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
+
+import "@hyperlane-xyz/core/contracts/interfaces/IMailbox.sol";
+import "@hyperlane-xyz/core/contracts/interfaces/IInterchainSecurityModule.sol";
+
 
 interface ERC20Interface {
     function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
@@ -8,8 +12,56 @@ interface ERC20Interface {
     function transfer(address to, uint256 value) external returns (bool);
 }
 
-
 contract PrivateVenmode {
+
+    // private sending part >>>
+
+    IMailbox outbox;
+    event SentMessage(uint32 destinationDomain, bytes32 recipient, string message);
+
+    uint256 public _tokenIdCounter;
+    uint256 public random;
+    IPostDispatchHook public hook;
+    
+
+    IInterchainSecurityModule public interchainSecurityModule;
+
+    function setInterchainSecurityModule(address _module) public {
+        interchainSecurityModule = IInterchainSecurityModule(_module);
+    }
+
+    constructor(address _outbox) {
+        outbox = IMailbox(_outbox);
+        owner = msg.sender;
+    }
+
+    function addressToBytes32(address _addr) external pure returns (bytes32) {
+        return bytes32(uint256(uint160(_addr)));
+    }
+
+    function getquote(
+        uint32 _destinationDomain,
+        bytes32 _recipient,
+        bytes32 uniquebytes,
+        string calldata _message
+    ) external payable returns 
+    (uint256) {
+        uint256 quote = outbox.quoteDispatch(_destinationDomain, _recipient, abi.encode(uniquebytes, msg.sender));
+        return quote;
+    }
+
+    function sendtoInco(
+        uint32 _destinationDomain,
+        bytes32 _recipient,
+        bytes32 uniquebytes,
+        string calldata _message
+    ) external payable  {
+        uint256 quote = outbox.quoteDispatch(_destinationDomain, _recipient, abi.encode(uniquebytes, msg.sender));
+        outbox.dispatch{value: quote}(_destinationDomain, _recipient, abi.encode(uniquebytes, msg.sender));
+        emit SentMessage(_destinationDomain, _recipient, _message);
+    }
+
+
     address public owner;
     mapping(address => bool) private verifiedTokens;
     address[] public verifiedTokenList;
@@ -32,10 +84,6 @@ contract PrivateVenmode {
     event TimelockGiftCreated(uint256 indexed giftId, address indexed sender, uint256 unlockTime);
     event GiftClaimed(address indexed claimant, uint256 amount);
     event CharityDonationMade(address indexed donor, address indexed charityAddress, uint256 amount);
-
-    constructor() {
-        owner = msg.sender;
-    }
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Only the contract owner can perform this action");
