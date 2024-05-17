@@ -615,7 +615,7 @@ const SendMessage = () => {
             const hash = ethers.utils.keccak256(ethers.utils.toUtf8Bytes(ciphertext));
             toast({
                 title: 'Transfer Successful',
-                description: "You have successfully transferred tokens!",
+                description: "hash successfully generated, bridging!",
                 status: 'success',
                 duration: 9000,
                 isClosable: true,

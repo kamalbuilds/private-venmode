@@ -301,13 +301,14 @@ function Example() {
       // Prompt user for account connections
       await provider.send("eth_requestAccounts", []);
       const signer = await provider.getSigner();
+      const addr =  await signer.getAddress();
       console.log("Account:", await signer.getAddress());
       // const signer = await provider.getSigner();
       console.log(signer,"signer")
       const contract = new Contract(CONTRACT_ADDRESS, rabi, signer);
       const { publicKey, signature } = await getTokenSignature(
         CONTRACT_ADDRESS,
-        signer.address,
+        addr,
         signer
       );
       const ciphertext = await contract.viewSecret(user,publicKey, signature);
