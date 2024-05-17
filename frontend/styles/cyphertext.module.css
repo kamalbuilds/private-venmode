@@ -1,0 +1,29 @@
+
+  .container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .inputc {
+    padding: 10px;
+    margin: 10px;
+    width: calc(100% - 22px);
+    font-size: 16px;
+  }
+  .buttonc {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  .buttonc:hover {
+    background-color: #0056b3;
+  }
+  .pc {
+    margin: 20px 0;
+    font-size: 18px;
+  }

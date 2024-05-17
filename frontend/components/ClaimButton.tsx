@@ -2,7 +2,7 @@ import { Web3Button, useContract } from "@thirdweb-dev/react";
 import { PVENMODE_CONTRACT_ADDRESS } from "../const/addresses";
 import { ethers } from "ethers";
 import { useToast } from "@chakra-ui/react";
-import abi from "../abi/abi.json";
+import abi from "../abi/abi";
 type Props = {
     tokenAddress: string;
     claimcode: string;

@@ -5,7 +5,7 @@ import TokenSelection from "./TokenSelection";
 import { useState } from "react";
 import TokenBalance from "./TokenBalance";
 import styles from "../styles/Home.module.css";
-import abi from "../abi/abi.json";
+import abi from "../abi/abi";
 import "react-datepicker/dist/react-datepicker.css";
 import CharityButton from "./CharityButton";
 

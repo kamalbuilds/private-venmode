@@ -6,7 +6,7 @@ import { useState } from "react";
 import TokenBalance from "./TokenBalance";
 import TransferButton from "./TransferButton";
 import styles from "../styles/Home.module.css";
-import abi from "../abi/abi.json";
+import abi from "../abi/abi";
 import TimeLockGiftButton from "./TimeLockGiftButton";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";

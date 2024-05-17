@@ -14,7 +14,7 @@ const Home: NextPage = () => {
             <Stack spacing={4}>
               <Heading fontSize={"xl"}>PrivateVenmode</Heading>
               <Heading fontSize={"6xl"}>
-                Send btc tokens to your friends by wrapping a gift.
+                Send tokens along with a secret message to your friends by wrapping it in a gift.
               </Heading>
               <Text fontSize={"xl"}>
                 Select from a selection of tokens to transfer to your friends and family. Write a message and code to go along with your token transfer. Connect your wallet to get started now!

@@ -1,4 +1,4 @@
-[
+const accountabstractionabi = [
     {
       "type": "constructor",
       "name": "",
@@ -609,3 +609,5 @@
       "stateMutability": "view"
     }
   ]
+
+  export default accountabstractionabi;

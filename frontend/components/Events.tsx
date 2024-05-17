@@ -2,7 +2,7 @@ import { Box, Card, Flex, Heading, Spinner, Text } from "@chakra-ui/react";
 import { useContract, useContractEvents } from "@thirdweb-dev/react";
 import { PVENMODE_CONTRACT_ADDRESS } from "../const/addresses";
 import { ethers } from "ethers";
-import abi from "../abi/abi.json";
+import abi from "../abi/abi";
 export default function Events() {
     function truncateAddress(address: string) {
         return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;

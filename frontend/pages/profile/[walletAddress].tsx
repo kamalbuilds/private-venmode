@@ -2,9 +2,11 @@ import { Avatar, Container, Flex, Heading, SimpleGrid, Spinner, Text, Toast, use
 import { useAddress, useContract, useContractRead } from "@thirdweb-dev/react";
 import { PVENMODE_CONTRACT_ADDRESS } from "../../const/addresses";
 import BalanceCard from "../../components/BalanceCard";
-import abi from "../../abi/abi.json";
-import accountabstractionabi from "../../abi/accountabstractionabi.json";
+import abi from "../../abi/abi";
+import accountabstractionabi from "../../abi/accountabstractionabi";
 import { Web3Button } from "@thirdweb-dev/react";
+import Private from "../../components/private";
+import SendMessage from "../../components/Sendencrypted";
 
 
 export default function AccountPage() {
@@ -93,6 +95,10 @@ export default function AccountPage() {
                         ) : (
                             <Spinner />
                         )}
+
+                        <Private />
+
+                        <SendMessage />
                     </Flex>
                 </Flex>
             ) : (
