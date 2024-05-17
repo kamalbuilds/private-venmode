@@ -35,7 +35,7 @@ function Example() {
   const [amountUint32, setAmountUint32] = useState(0);
   const [eamountUint32, setEamountUint32] = useState(0);
 
-  const handleAmountChangeUint8 = (event) => {
+  const handleAmountChangeUint8 = (event: any) => {
     let _instance = getInstance();
     _instance.then((instance) => {
       setEamountUint8(toHexString(instance.encrypt8(+event.target.value)));
@@ -49,7 +49,7 @@ function Example() {
     }
   };
 
-  const handleAmountChangeUint16 = (event) => {
+  const handleAmountChangeUint16 = (event : any) => {
     let _instance = getInstance();
     _instance.then((instance) => {
       setEamountUint16(toHexString(instance.encrypt16(+event.target.value)));
@@ -63,7 +63,7 @@ function Example() {
     }
   };
 
-  const handleAmountChangeUint32 = (event) => {
+  const handleAmountChangeUint32 = (event: any) => {
     let _instance = getInstance();
     _instance.then((instance) => {
       setEamountUint32(toHexString(instance.encrypt32(+event.target.value)));
@@ -83,13 +83,7 @@ function Example() {
         Welcome to <span>Inco Network</span>
       </h1>
       <span className="footer">
-        Switch to Inco Gentry Testnet on Metamask:{" "}
-        <a
-          href="https://docs.inco.network/getting-started/connect-metamask"
-          target="_blank"
-        >
-          Guide
-        </a>
+        Switch to Inco Gentry Testnet on Metamask to encrypt:{" "}
       </span>
       <Form className="Form-container">
         <Form.Group className="form-group">
